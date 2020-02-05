@@ -1,0 +1,63 @@
+Régression
+(regression multiple avec R
+
+Fonction que la prof s'attend à ce qu'on sache utilisé
+
+-plot
+-pairs
+-cor
+-lm
+-summary.lm
+-confint "(confidence interval)"
+
+
+
+Explication code
+
+## Estimate Std. Error t value Pr(>|t|)
+## (Intercept) 35.4530 10.7446 3.300 0.00185 **
+## T12 2.5380 0.5151 4.927 1.08e-05 ***
+## Vx 0.8736 0.1772 4.931 1.06e-05 ***
+
+"t value c'est H_0: Beta_j = 0"
+
+## Residual standard error: 16.82 on 47 degrees of freedom
+## Multiple R-squared: 0.5249, Adjusted R-squared: 0.5047
+## F-statistic: 25.96 on 2 and 47 DF, p-value: 2.541e-08
+
+"16.82 c'est sigma^chapeau"
+"Multiple R-squared: 0.5249 c'est R^2 et adjusted R-squared c'est R^2 ajusté"
+"F-statistic (...) 2 = p et 47 = n-p'"
+
+sqrt(sum(reg$residuals^2)/(n-3)) "reg$residuals (y_i - y_i^2)"
+
+c(hat_beta[1] - qt(0.975,n-3)*sqrt(var_hat_beta[1,1]), hat_beta[1] + qt(0.975,n-3)*sqrt(var_hat_beta[1,1
+"hat_beta[1] c'est beta_0^chapeau"
+
+## fit lwr upr
+## 1 31.86475 15.72442 48.00508
+## 2 59.27565 48.73552 69.81579
+## 3 86.68655 72.11926 101.25384
+## 4 43.96807 29.80017 58.13597
+## 5 71.37897 64.72910 78.02885
+## 6 98.78988 87.03233 110.54742
+## 7 56.07139 42.29766 69.84513
+## 8 83.48230 78.37204 88.59255
+## 9 110.89320 100.26112 121.52528
+
+"fit = y^chapeau et lwr-upr = I de C"
+
+
+
+Utile pour le devoir , début=>
+Nous allons maintenant ajouter une troisième variable explicative à notre modèle, la variable T15 représentant
+la température à 15h. On illustre tout d’abord les données.
+pairs(~O3+T12+Vx+T15 , data=ozone, main="Matrice de nuage de points")
+
+## Estimate Std. Error t value Pr(>|t|)
+## (Intercept) 33.7500 10.7920 3.127 0.00306 **
+## T12 0.3902 1.8742 0.208 0.83600
+## Vx 0.8007 0.1867 4.289 9.1e-05 ***
+## T15 2.1172 1.7770 1.191 0.23958
+
+"pr(>|t|) valeur-p, H0: Beta_j = 0.	0.83600 -->	H_0: Beta_1=0  et 0.23958 --> H_0: Beta_3 = 0
