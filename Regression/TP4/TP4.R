@@ -24,7 +24,7 @@ predict(lm(Y~.,data = demo4b),demo4c, level=1,0.05/7, interval = 'confidence')
 
 W_carre=6*qf(0.95,6,3)
 W=sqrt(W_carre)
-EC= predict(lm(Y~.,data=demo4b),se.fit=TRUE)$se.fit
+EC= predict(lm(Y~.,data=demo4b),demo4c,se.fit=TRUE)$se.fit
 borne_inf=predict(lm(Y~.,data=demo4b),newdata = demo4c)-W*EC
 borne_sup=predict(lm(Y~.,data=demo4b),newdata = demo4c)+W*EC
 
