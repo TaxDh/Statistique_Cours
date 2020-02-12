@@ -61,3 +61,10 @@ pairs(~O3+T12+Vx+T15 , data=ozone, main="Matrice de nuage de points")
 ## T15 2.1172 1.7770 1.191 0.23958
 
 "pr(>|t|) valeur-p, H0: Beta_j = 0.	0.83600 -->	H_0: Beta_1=0  et 0.23958 --> H_0: Beta_3 = 0
+
+
+/* 12 fevrier 23 min environ, page 9*/
+
+il y a une erreur la library(MASS) sert pour la transformation Box-Cox, et non les graphiques 3D.
+
+
